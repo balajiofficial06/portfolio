@@ -1,11 +1,16 @@
 import './App.css';
+import AboutMe from './components/AboutMe';
+import Home from './components/Home';
 import Topbar from './components/Topbar';
-
 
 
 function App() {
   return (
-    <Topbar />
+    <div className='app'>
+      <Topbar />
+      <Home />
+      <AboutMe />
+    </div>
 
   );
 }

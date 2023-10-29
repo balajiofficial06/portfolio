@@ -6,7 +6,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 const CustomAppBar = styled(AppBar)(({ theme }) => ({
     background: theme.palette.background.default,
-    color: theme.palette.text.primary,
 }))
 
 const CustomToolBar = styled(Toolbar)(({ theme }) => ({
@@ -51,7 +50,7 @@ function Topbar() {
 
 
     return (
-        < CustomAppBar position='sticky'>
+        < CustomAppBar position='sticky' id='Topbar'>
             <CustomToolBar>
                 <img src='https://alamin-portfolio.netlify.app/img/logo.png' />
                 {isMdOrUp && <ButtonDiv >
