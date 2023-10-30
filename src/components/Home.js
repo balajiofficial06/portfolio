@@ -5,7 +5,7 @@ import Urls from '../data/Urls'
 
 const RootContainer = styled('div')(({ theme }) => (
     {
-        padding: "130px 80px",
+        padding: "100px 80px",
         height: "auto",
         display: "flex",
         flexDirection: "column",
@@ -59,10 +59,9 @@ function Home() {
             <Typography variant='p' color="white" textAlign="center">
                 Diligent software developer adept at crafting efficient, innovative solutions through <br /> proficient coding and problem-solving skills.
             </Typography>
-            <CustomButton href={Urls.link.cv} target='_blank'>
-                <Typography variant='p' color="white" fontWeight='100'>Download CV</Typography>
+            <CustomButton href='' target='_blank'>
+                <Typography variant='p' color="white" fontWeight='100' padding='5PX 25PX'>Hire Me</Typography>
             </CustomButton>
-
         </RootContainer>
     )
 }
