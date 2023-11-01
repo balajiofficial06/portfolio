@@ -8,6 +8,7 @@ const theme = createTheme({
         text: {
             // 7d8792
             primary: "#F4EEE0",
+            heading: "#e0a80d",
         },
     },
 });

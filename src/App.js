@@ -1,7 +1,9 @@
 import './App.css';
 import AboutMe from './components/AboutMe';
 import Home from './components/Home';
+import Projects from './components/Projects';
 import Topbar from './components/Topbar';
+
 
 
 function App() {
@@ -10,6 +12,7 @@ function App() {
       <Topbar />
       <Home />
       <AboutMe />
+      <Projects />
     </div>
 
   );

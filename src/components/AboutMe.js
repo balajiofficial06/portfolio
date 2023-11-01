@@ -83,7 +83,7 @@ function AboutMe() {
           variant="h4"
           gutterBottom
           style={{
-            color: "#ffc107",
+            color: theme.palette.text.heading,
           }}
         >
           About Me
