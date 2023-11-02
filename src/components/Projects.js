@@ -1,91 +1,119 @@
-import styled from '@emotion/styled';
-import { Button, Tab, Tabs, Typography, useTheme } from '@mui/material';
-import React, { useState } from 'react'
+import styled from "@emotion/styled";
+import {
+  Button,
+  Card,
+  CardMedia,
+  Grid,
+  Tab,
+  Tabs,
+  Typography,
+  useTheme,
+} from "@mui/material";
+import React, { useState } from "react";
 
-const buttons = [{ name: "All", filter: "" }, { name: "Frontend", filter: "frontend" }, { name: "Backend", filter: "Backend" }, { name: "Full Stack", filter: "fullstack" }]
+import todoImg from "./images/todo.png";
+import { projects } from "../data/Texts";
 
-const ProjectButton = styled(Button)({
-    width: 'auto',
-    boxShadow: 'none',
-    textTransform: 'none',
-    fontSize: 16,
-    padding: '6px 12px',
-    // border: '2px solid',
-    lineHeight: 1.5,
-    backgroundColor: 'none',
-    borderColor: 'none',
-    borderRadius: '2rem',
-    fontFamily: [
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-    ].join(','),
-    '&:hover': {
-        backgroundColor: '#e0a80d',
-        borderColor: '#e0a80d',
-        boxShadow: 'none',
-    },
-
-})
-
-
-const ButtonDiv = styled('div')({
-    paddingRight: '10px',
-    display: "flex",
-    flexDirection: "row",
-    gap: "20px"
-
-})
-
-const CustomTab = styled('Tab')(({ theme }) => ({
-
-}))
+const buttons = [
+  { name: "All", filter: "All" },
+  { name: "Frontend", filter: "frontend" },
+  { name: "Backend", filter: "Backend" },
+  { name: "Full Stack", filter: "fullstack" },
+];
 
 const RootContainer = styled("div")(({ theme }) => ({
-    padding: "80px 80px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "40px",
-    backgroundColor: theme.palette.background.default,
-    [theme.breakpoints.down("sm")]: {
-        padding: "80px 20px",
-    },
+  padding: "80px 80px",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: "40px",
+  backgroundColor: theme.palette.background.default,
+  [theme.breakpoints.down("sm")]: {
+    padding: "80px 20px",
+  },
 }));
 
+const CustomCard = styled(Card)({
+  marginTop: "20px",
+  width: "400px",
+  height: "300px",
+  borderRadius: "0.8rem",
+});
 
+const CustomCardMedia = styled(CardMedia)(({ theme }) => ({
+  position: "relative",
+  width: "400px",
+  height: "300px",
+  transition: "0.8s",
+  ":hover": {
+    width: "425px",
+    height: "325px",
+  },
+  overflow: "hidden",
+}));
 
 function Projects() {
-    const [value, setValue] = useState(1)
-    const theme = useTheme()
+  const [value, setValue] = useState(1);
+  const [filter, setFilter] = useState("All");
+  const theme = useTheme();
 
-    function handleChange(event, newValue) {
-        setValue(newValue)
-    }
+  function handleChange(event, newValue) {
+    var index = newValue - 1;
+    setFilter(buttons[index].filter);
+    setValue(newValue);
+  }
 
-    return (
-        <RootContainer>
-            <Typography variant='h4' color={theme.palette.text.heading} fontWeight='500' >Projects</Typography>
-            <Tabs
-                value={value}
-                onChange={handleChange}
-
-                aria-label="secondary tabs example" >
-
-                {buttons.map((button, index) =>
-                    <CustomTab key={index + 1} label={button.name} value={index + 1} />
-                )}
-            </Tabs>
-
-        </RootContainer>
-    )
+  return (
+    <RootContainer>
+      <Typography
+        variant="h4"
+        color={theme.palette.text.heading}
+        fontWeight="500"
+      >
+        Projects
+      </Typography>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        textColor="inherit"
+        indicatorColor="secondary"
+        aria-label="secondary tabs example"
+        sx={{
+          flexGrow: 1,
+          gap: "30px",
+          "& .MuiTab-root": {
+            color: "white",
+            fontSize: "20px",
+            fontWeight: "50",
+            marginRight: "20px",
+            textTransform: "none", // Customize text style of the tab
+          },
+          "& .MuiTabs-indicator": {
+            backgroundColor: theme.palette.text.heading, // Customize the color of the tab indicator
+          },
+        }}
+      >
+        {buttons.map((button, index) => (
+          <Tab key={index + 1} value={index + 1} label={button.name}></Tab>
+        ))}
+      </Tabs>
+      <Grid container spacing={4}>
+        {projects.map((project, index) => (
+          <Grid item sm={8} md={6} lg={4}>
+            <CustomCard>
+              <a
+                href="https://github.com/balajiofficial06/react_todo.git"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <CustomCardMedia image={todoImg} title="todo"></CustomCardMedia>
+              </a>
+            </CustomCard>
+          </Grid>
+        ))}
+      </Grid>
+    </RootContainer>
+  );
 }
 
-export default Projects
+export default Projects;
