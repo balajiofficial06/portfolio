@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { TextField, Typography, useTheme } from '@mui/material';
+import { Button, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React, { useState } from 'react'
 
 const RootContainer = styled("div")(({ theme }) => ({
@@ -15,7 +15,7 @@ const RootContainer = styled("div")(({ theme }) => ({
     },
 }));
 
-const FormContainer = styled('div')(({ theme }) => ({
+const FormContainer = styled('form')(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -39,7 +39,7 @@ const SubContainer = styled('div')(({ theme }) => ({
         margin: "none",
         width: "400px",
         flexDirection: "column",
-        gap: "10px"
+        gap: "5px"
     },
 }))
 
@@ -70,11 +70,42 @@ const CustomInput = styled('input')(({ theme }) => ({
     // '& .Mui'
 }))
 /* your custom styles here */
+const CustomButton = styled(Button)({
+    width: "100%",
+    boxShadow: 'none',
+    textTransform: 'none',
+    fontSize: 16,
+    padding: '6px 12px',
+    border: '2px solid',
+    lineHeight: 1.5,
+    backgroundColor: 'none',
+    borderColor: '#e0a80d',
+    borderRadius: '2rem',
+    fontFamily: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+    ].join(','),
+    '&:hover': {
+        backgroundColor: '#e0a80d',
+        borderColor: '#e0a80d',
+        boxShadow: 'none',
+    },
+
+})
 
 
 function ContactMe() {
 
     const theme = useTheme();
+    const small = useMediaQuery(theme.breakpoints.up("sm"));
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
     const handleChange = (e) => {
@@ -97,16 +128,20 @@ function ContactMe() {
                 Let's talk
             </Typography>
 
-            <form >
-                <FormContainer>
-                    <SubContainer>
-                        <CustomInput label="Name" onChange={handleChange} placeholder='Name' style={{ height: "30px", }} />
-                        <CustomInput label="email" onChange={handleChange} placeholder='email' style={{ height: "30px" }} />
-                    </SubContainer>
-                    <CustomInput label="subject" onChange={handleChange} placeholder='subject' style={{ height: "30px" }} />
-                    <CustomInput label="message" onChange={handleChange} placeholder='message' style={{ height: "100px" }} />
-                </FormContainer>
-            </form>
+            <FormContainer onSubmit={handleSubmit}>
+                {small && (<SubContainer>
+                    <CustomInput label="Name" onChange={handleChange} placeholder='Name' style={{ height: "30px", }} />
+                    <CustomInput label="email" onChange={handleChange} placeholder='email' style={{ height: "30px" }} />
+                </SubContainer>)}
+                {!small && (<CustomInput label="Name" onChange={handleChange} placeholder='Name' style={{ height: "30px", }} />)}
+                {!small && <CustomInput label="email" onChange={handleChange} placeholder='email' style={{ height: "30px" }} />}
+                <CustomInput label="subject" onChange={handleChange} placeholder='subject' style={{ height: "30px" }} />
+                <CustomInput label="message" onChange={handleChange} placeholder='message' style={{ height: "100px" }} />
+                <CustomButton type="submit">
+                    <Typography variant='p' color="white" fontWeight='100' padding='5PX 25PX'>Send</Typography>
+                </CustomButton>
+
+            </FormContainer>
 
         </RootContainer>
     )
