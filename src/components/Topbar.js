@@ -52,7 +52,7 @@ function Topbar() {
     return (
         < CustomAppBar position='sticky' id='Topbar'>
             <CustomToolBar>
-                <img src='https://alamin-portfolio.netlify.app/img/logo.png' />
+                <img src='https://alamin-portfolio.netlify.app/img/logo.png' alt='' />
                 {isMdOrUp && <ButtonDiv >
                     {actions.map((action, index) => {
                         return <CustomButton key={index} href={action.link}>{action.name}</CustomButton>
