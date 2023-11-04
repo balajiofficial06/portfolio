@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Typography, useMediaQuery, useTheme } from '@mui/material';
-import React, { useState } from 'react'
-// import emailjs from '@emailjs/browser';
+import React, { useRef } from 'react'
+import emailjs from '@emailjs/browser';
 
 
 const RootContainer = styled("div")(({ theme }) => ({
@@ -24,7 +26,7 @@ const FormContainer = styled('form')(({ theme }) => ({
     gap: "10px",
     width: "600px",
     [theme.breakpoints.down("sm")]: {
-        width: "400px",
+        width: "300px",
     },
 
 }))
@@ -39,7 +41,7 @@ const SubContainer = styled('div')(({ theme }) => ({
     justifyContent: "space-between",
     [theme.breakpoints.down("sm")]: {
         margin: "none",
-        width: "400px",
+        width: "300px",
         flexDirection: "column",
         gap: "5px"
     },
@@ -52,24 +54,17 @@ const CustomInput = styled('input')(({ theme }) => ({
     borderRadius: "10px",
     height: "50px",
     padding: "10px"
-    // background: "#fcf2f2",
-    // '& label.Mui-focused': {
-    // },
-    // '& .MuiInput-underline:after': {
-    //     borderBottomColor: 'yellow',
-    // },
-    // '& .MuiOutlinedInput-root': {
-    //     '& fieldset': {
-    //         borderColor: '#E0E3E7',
-    //     },
-    //     '&:hover fieldset': {
-    //         borderColor: 'black',
-    //     },
-    //     '&.Mui-focused fieldset': {
-    //         borderColor: '#6F7E8C',
-    //     },
-    // },
-    // '& .Mui'
+
+}))
+const CustomTextBox = styled('textarea')(({ theme }) => ({
+    width: "100%",
+    fontSize: "1rem",
+    background: "#fcf2f2",
+    borderRadius: "10px",
+    height: "50px",
+    padding: "10px",
+    fontFamily: "sans-serif"
+
 }))
 /* your custom styles here */
 const CustomButton = styled(Button)({
@@ -108,16 +103,25 @@ function ContactMe() {
 
     const theme = useTheme();
     const small = useMediaQuery(theme.breakpoints.up("sm"));
-    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const form = useRef();
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e) => {
+    const sendEmail = (e) => {
         e.preventDefault();
-        console.log(formData);
+
+        emailjs.sendForm('service_76pq5xc', 'template_tl2zhve', form.current, '3QEV8gF97twCkS0nJ')
+            .then((result) => {
+                // <Alert severity="success">Got your message!! I'll reach you soon😉</Alert>
+                alert("Email is sent, I'll get back to you soon😉")
+                e.target.reset()
+            }, (error) => {
+                // <Alert severity="warning">{error.text}</Alert>
+                alert(error.text)
+
+            });
+
+
     };
+
 
 
     return (
@@ -130,17 +134,20 @@ function ContactMe() {
                 Let's talk
             </Typography>
 
-            <FormContainer onSubmit={handleSubmit}>
+            <FormContainer ref={form} onSubmit={sendEmail}>
                 {small && (<SubContainer>
-                    <CustomInput label="Name" onChange={handleChange} placeholder='Name' style={{ height: "30px", }} />
-                    <CustomInput label="email" onChange={handleChange} placeholder='email' style={{ height: "30px" }} />
+                    <CustomInput label="Name" placeholder='Name' style={{ height: "30px", }} name="from_name" required />
+                    <CustomInput label="email" placeholder='email' style={{ height: "30px" }} name="from_email" required />
                 </SubContainer>)}
-                {!small && (<CustomInput label="Name" onChange={handleChange} placeholder='Name' style={{ height: "30px", }} />)}
-                {!small && <CustomInput label="email" onChange={handleChange} placeholder='email' style={{ height: "30px" }} />}
-                <CustomInput label="subject" onChange={handleChange} placeholder='subject' style={{ height: "30px" }} />
-                <CustomInput label="message" onChange={handleChange} placeholder='message' style={{ height: "100px" }} />
+                {!small && (<CustomInput label="Name" placeholder='Name' style={{ height: "30px", }} name="from_name" required />)}
+                {!small && <CustomInput label="email" placeholder='email' style={{ height: "30px" }} name="from_email" required />}
+                <CustomInput label="subject" placeholder='subject' style={{ height: "30px" }} name='subject' required />
+                <CustomTextBox label="message" placeholder='message' style={{ height: "100px" }} name='message' required />
                 <CustomButton type="submit">
-                    <Typography variant='p' color="white" fontWeight='100' padding='5PX 25PX'>Send</Typography>
+                    <Typography variant='p' color="white" fontWeight='100' padding='5PX 5px'>Send
+                    </Typography>
+                    <FontAwesomeIcon icon={faPaperPlane} beatFade size="sm"
+                        style={{ color: "white" }} />
                 </CustomButton>
 
             </FormContainer>

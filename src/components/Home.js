@@ -19,6 +19,12 @@ const RootContainer = styled('div')(({ theme }) => (
     }
 ))
 
+const CustomText = styled(Typography)(({ theme }) => ({
+    color: "#e0a80d",
+    fontWeight: "600",
+    textAlign: "center",
+}))
+
 const CustomButton = styled(Button)({
     boxShadow: 'none',
     textTransform: 'none',
@@ -55,7 +61,7 @@ function Home() {
     return (
         <RootContainer id='Home'>
             <Typography variant='p' fontSize='25px' fontWeight='300' color='white'>I'm Balaji</Typography>
-            <Typography variant='h3' color="#e0a80d" fontWeight='600'>Software developer</Typography>
+            <CustomText variant='h3'>Software developer</CustomText>
             <Typography variant='p' color="white" textAlign="center">
                 Diligent software developer adept at crafting efficient, innovative solutions through <br /> proficient coding and problem-solving skills.
             </Typography>

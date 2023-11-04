@@ -26,10 +26,10 @@ const CostomTab = styled(Tabs)(({ theme }) => ({
         color: "white",
         fontSize: "15px",
         fontWeight: "50",
-        marginRight: "20px",
+        // marginRight: "20px",
         textTransform: "none",
         [theme.breakpoints.down('sm')]: {
-            marginRight: "10px"
+            gap: "20px"
         }
     },
     "& .MuiTabs-indicator": {

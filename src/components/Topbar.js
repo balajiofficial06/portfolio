@@ -2,6 +2,8 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { AppBar, Button, Toolbar, useMediaQuery, useTheme } from '@mui/material'
 import MenuIcon from "@mui/icons-material/Menu";
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const CustomAppBar = styled(AppBar)(({ theme }) => ({
@@ -52,7 +54,9 @@ function Topbar() {
     return (
         < CustomAppBar position='sticky' id='Topbar'>
             <CustomToolBar>
-                <img src='https://alamin-portfolio.netlify.app/img/logo.png' alt='' />
+                <a style={{ color: "white" }} href='https://github.com/balajiofficial06'>
+                    <FontAwesomeIcon icon={faGithub} flip size='2xl' />
+                </a>
                 {isMdOrUp && <ButtonDiv >
                     {actions.map((action, index) => {
                         return <CustomButton key={index} href={action.link}>{action.name}</CustomButton>
