@@ -1,5 +1,6 @@
 import './App.css';
 import AboutMe from './components/AboutMe';
+import ContactMe from './components/ContactMe';
 import Home from './components/Home';
 import Projects from './components/Projects';
 import TestProject from './components/TestProject';
@@ -15,6 +16,7 @@ function App() {
       <Home />
       <AboutMe />
       <TestProject />
+      <ContactMe />
     </div>
 
   );
