@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import { Button, Dialog, DialogTitle, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import { Button, Typography } from '@mui/material'
+import React from 'react'
 // import Urls from '../data/Urls'
 
 const RootContainer = styled('div')(({ theme }) => (
@@ -57,15 +57,6 @@ const CustomButton = styled(Button)({
 
 
 function Home() {
-    const [open, setOpen] = useState(false)
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
 
     return (
         <RootContainer id='home'>
