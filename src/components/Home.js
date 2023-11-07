@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import { Button, Typography } from '@mui/material'
-import React from 'react'
+import { Button, Dialog, DialogTitle, Typography } from '@mui/material'
+import React, { useState } from 'react'
 // import Urls from '../data/Urls'
 
 const RootContainer = styled('div')(({ theme }) => (
@@ -56,16 +56,25 @@ const CustomButton = styled(Button)({
 })
 
 
-
 function Home() {
+    const [open, setOpen] = useState(false)
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
-        <RootContainer id='Home'>
+        <RootContainer id='home'>
             <Typography variant='p' fontSize='25px' fontWeight='300' color='white'>I'm Balaji</Typography>
             <CustomText variant='h3'>Software developer</CustomText>
             <Typography variant='p' color="white" textAlign="center">
                 Diligent software developer adept at crafting efficient, innovative solutions through <br /> proficient coding and problem-solving skills.
             </Typography>
-            <CustomButton href='' target='_blank'>
+            <CustomButton href='' target='_blank' onClick={() => { window.location.href = '#contactme' }}>
                 <Typography variant='p' color="white" fontWeight='100' padding='5PX 25PX'>Hire Me</Typography>
             </CustomButton>
         </RootContainer>

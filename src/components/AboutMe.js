@@ -67,7 +67,7 @@ function AboutMe() {
   const isMdOrUp = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
-    <RootContainer id="about">
+    <RootContainer id="aboutme">
       {isMdOrUp && (
         <PersonImage src="https://alamin-portfolio.netlify.app/img/man.png" />
       )}
