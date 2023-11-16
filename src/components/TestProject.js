@@ -105,7 +105,7 @@ function TestProject() {
                                             alt={project.title}
                                             style={{
                                                 width: "100%",
-                                                height: "auto",
+                                                height: "200px",
                                                 borderRadius: "4px",
                                             }}
                                         />

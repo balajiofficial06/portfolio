@@ -1,4 +1,8 @@
 import todoimg from '../components/images/todo.png'
+import employeTrakingImg from '../components/images/employee-tracking.jpg'
+import portfolioImg from '../components/images/portfolioCover.jpg'
+import tourBookingImg from '../components/images/tourBooking.jpg'
+
 
 export const Texts = {
   aboutme:
@@ -16,7 +20,7 @@ export const projects = [
   },
   {
     title: "Employee Tracker",
-    images: todoimg,
+    images: employeTrakingImg,
     url: "https://github.com/balajiofficial06/employe_tracker.git",
     description:
       "An employee management system created using the MERN stack, designed to keep track of employee details, attendance, and performance.",
@@ -25,14 +29,14 @@ export const projects = [
   {
     title: "Personal Portfolio",
     url: "https://github.com/balajiofficial06/portfolio.git",
-    images: todoimg,
+    images: portfolioImg,
     description:
       "A personal portfolio website showcasing your skills, experience, and projects, developed using the MERN stack to highlight your professional achievements.",
     stack: "frontend",
   },
   {
     title: "Tour Booking App",
-    images: todoimg,
+    images: tourBookingImg,
     url: "https://github.com/balajiofficial06/Natours.git",
     description:
       "A comprehensive tour booking application created with the MERN stack to facilitate the booking and management of tours, activities, and accommodations.",
