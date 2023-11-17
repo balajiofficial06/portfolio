@@ -49,9 +49,31 @@ const RootContainer = styled("div")(({ theme }) => ({
     },
 }));
 
-const ProjectCard = styled("div")(({ theme }) => ({
-    borderRadius: "4px",
-    width: "100%",
+const ProjectCard = styled('div')(({ theme }) => ({
+    position: 'relative',
+    overflow: 'hidden',
+    borderRadius: '4px',
+    width: '100%',
+    transition: 'opacity 0.3s ease',
+    ':hover': {
+        '> a > div': {
+            opacity: '1',
+        },
+        opacity: '0.9', // Adjust the opacity value as needed
+    },
+}));
+
+const ProjectTitle = styled('div')(({ theme }) => ({
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    color: '#F4EAE0', // Adjust text color as needed
+    fontSize: '1.5rem', // Adjust font size as needed
+    fontWeight: 'bold',
+    textAlign: 'center',
+    opacity: '0',
+    transition: 'opacity 0.3s ease',
 }));
 
 function TestProject() {
@@ -109,6 +131,9 @@ function TestProject() {
                                                 borderRadius: "4px",
                                             }}
                                         />
+                                        <ProjectTitle>{project.title}</ProjectTitle>
+                                        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'black', opacity: 0, transition: 'opacity 0.3s ease' }} />
+
                                     </a>
                                 </ProjectCard>
                             </Grid></Grow>) : null

@@ -98,7 +98,7 @@ function AboutMe() {
           {Texts.aboutme}
         </Typography>
         <ButtonDiv>
-          <CustomButton>
+          <CustomButton href={Urls.link.cv}>
             <Typography variant="p" color="white" fontWeight="100">
               Download CV
             </Typography>
