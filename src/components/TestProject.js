@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from "@emotion/styled";
 import {
+    Fade,
     Grid,
-    Grow,
     Tab,
     Tabs,
     Typography,
@@ -59,7 +59,7 @@ const ProjectCard = styled('div')(({ theme }) => ({
         '> a > div': {
             opacity: '1',
         },
-        opacity: '0.9', // Adjust the opacity value as needed
+        opacity: '0.8', // Adjust the opacity value as needed
     },
 }));
 
@@ -68,8 +68,10 @@ const ProjectTitle = styled('div')(({ theme }) => ({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    color: '#F4EAE0', // Adjust text color as needed
+    textShadow: "-3px -2px 5px black",
+    color: 'white', // Adjust text color as needed
     fontSize: '1.5rem', // Adjust font size as needed
+    borderColor: "black",
     fontWeight: 'bold',
     textAlign: 'center',
     opacity: '0',
@@ -114,7 +116,7 @@ function TestProject() {
 
 
                     filter === 'All' || project.stack === filter ? (
-                        <Grow in={true} style={{ transformOrigin: '0 0 0' }} timeout={1500} key={index}>
+                        <Fade in={true} timeout={1000}>
                             <Grid item xs={12} sm={6} md={4} xl={3} key={index}>
                                 <ProjectCard>
                                     <a
@@ -136,7 +138,7 @@ function TestProject() {
 
                                     </a>
                                 </ProjectCard>
-                            </Grid></Grow>) : null
+                            </Grid></Fade>) : null
 
                 ))}
 
