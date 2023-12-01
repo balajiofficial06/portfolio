@@ -5,12 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Texts } from "../data/Texts";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Urls from "../data/Urls";
+import Lottie from "lottie-react";
+import animation from "../components/images/animation.json"
 
 const RootContainer = styled("div")(({ theme }) => ({
   padding: "80px 80px",
   display: "flex",
   flexDirection: "row",
-  gap: "80px",
+  gap: "40px",
   backgroundColor: theme.palette.background.default,
   [theme.breakpoints.down("sm")]: {
     padding: "80px 20px",
@@ -54,12 +56,6 @@ const ButtonDiv = styled("div")({
   gap: "20px",
 });
 
-const PersonImage = styled("img")(({ theme }) => ({
-  width: "300px",
-  [theme.breakpoints.down("lg")]: {
-    width: "250px",
-  },
-}));
 
 function AboutMe() {
   const theme = useTheme();
@@ -69,7 +65,10 @@ function AboutMe() {
   return (
     <RootContainer id="aboutme">
       {isMdOrUp && (
-        <PersonImage src="https://alamin-portfolio.netlify.app/img/man.png" />
+
+        <Lottie animationData={animation} height="100%" width="100%" style={{ transform: 'scale(2)' }} />
+
+        // <PersonImage src="https://alamin-portfolio.netlify.app/img/man.png" />
       )}
       <div
         style={{
