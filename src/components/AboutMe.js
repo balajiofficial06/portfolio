@@ -91,7 +91,7 @@ function AboutMe() {
           variant="p"
           gutterBottom
           style={{
-            color: "#bac8d3",
+            color: theme.palette.text.secondary,
           }}
         >
           {Texts.aboutme}

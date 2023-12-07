@@ -9,6 +9,7 @@ const theme = createTheme({
             // 7d8792
             primary: "#FFFFFF",
             heading: "#e0a80d",
+            secondary: "#bac8d3",
         },
     },
 });

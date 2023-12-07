@@ -12,7 +12,6 @@ const CustomAppBar = styled(AppBar)(({ theme }) => ({
 
 const CustomToolBar = styled(Toolbar)(({ theme }) => ({
     margin: '0px 70px',
-    height: '80px',
     [theme.breakpoints.down('sm')]: {
         margin: '0px 20px',
     },
@@ -23,15 +22,15 @@ const ButtonDiv = styled('div')(() => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-end",
-    gap: "20px",
+    gap: "10px",
 
 }))
 
 
 const CustomButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.text.primary,
+    color: theme.palette.text.secondary,
     textTransform: "None",
-    fontSize: '14px'
+    fontSize: '13px'
 
 
 }))
@@ -51,6 +50,7 @@ function Topbar() {
         { name: "About", link: '#aboutme' },
         { name: "Projects", link: '#project' },
         { name: "Contact", link: '#contactme' },
+        { name: "Skills", link: '#skills' },
     ]
 
     const theme = useTheme()
