@@ -2,20 +2,34 @@ import { Button, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+
 import { Texts } from "../data/Texts";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Urls from "../data/Urls";
 import Lottie from "lottie-react";
 import animation from "../components/images/animation.json"
 
-const RootContainer = styled("div")(({ theme }) => ({
-  padding: "80px 80px",
+
+const Wapper = styled("div")(({ theme }) => ({
+  padding: "0px 20px",
   display: "flex",
   flexDirection: "row",
   gap: "40px",
   backgroundColor: theme.palette.background.default,
   [theme.breakpoints.down("sm")]: {
-    padding: "80px 20px",
+    padding: "20px 20px",
+  },
+}));
+
+const RootContainer = styled("div")(({ theme }) => ({
+  padding: "80px 80px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-evenly",
+  gap: "40px",
+  backgroundColor: theme.palette.background.default,
+  [theme.breakpoints.down("sm")]: {
+    padding: "20px 20px",
   },
 }));
 
@@ -57,69 +71,74 @@ const ButtonDiv = styled("div")({
 });
 
 
+
 function AboutMe() {
   const theme = useTheme();
 
   const isMdOrUp = useMediaQuery(theme.breakpoints.up("md"));
 
+
   return (
     <RootContainer id="aboutme">
-      {isMdOrUp && (
+      <Wapper >
+        {isMdOrUp && (
 
-        <Lottie animationData={animation} height="100%" width="100%" style={{ transform: 'scale(2)' }} />
+          <Lottie animationData={animation} height="100%" width="100%" style={{ transform: 'scale(2)' }} />
 
-        // <PersonImage src="https://alamin-portfolio.netlify.app/img/man.png" />
-      )}
-      <div
-        style={{
-          flexGrow: 1,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-        }}
-      >
-        <Typography
-          variant="h4"
-          gutterBottom
+          // <PersonImage src="https://alamin-portfolio.netlify.app/img/man.png" />
+        )}
+        <div
           style={{
-            color: theme.palette.text.heading,
+            flexGrow: 1,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
           }}
         >
-          About Me
-        </Typography>
-        <Typography
-          variant="p"
-          gutterBottom
-          style={{
-            color: theme.palette.text.secondary,
-          }}
-        >
-          {Texts.aboutme}
-        </Typography>
-        <ButtonDiv>
-          <CustomButton href={Urls.link.cv}>
-            <Typography variant="p" color="white" fontWeight="100">
-              Download CV
-            </Typography>
-          </CustomButton>
-          <CustomButton
+          <Typography
+            variant="h4"
+            gutterBottom
             style={{
-              gap: "3px",
+              color: theme.palette.text.heading,
             }}
-            href={Urls.link.linkedIn}
           >
-            <Typography variant="p" color="white" fontWeight="100">
-              Linked
-            </Typography>
-            <FontAwesomeIcon
-              icon={faLinkedin}
-              beat
-              size="sm"
-              style={{ color: "white" }}
-            />
-          </CustomButton>
-        </ButtonDiv>
-      </div>
+            About Me
+          </Typography>
+          <Typography
+            variant="p"
+            gutterBottom
+            style={{
+              color: theme.palette.text.secondary,
+            }}
+          >
+            {Texts.aboutme}
+          </Typography>
+          <ButtonDiv>
+            <CustomButton href={Urls.link.cv}>
+              <Typography variant="p" color="white" fontWeight="100">
+                Download CV
+              </Typography>
+            </CustomButton>
+            <CustomButton
+              style={{
+                gap: "3px",
+              }}
+              href={Urls.link.linkedIn}
+            >
+              <Typography variant="p" color="white" fontWeight="100">
+                Linked
+              </Typography>
+              <FontAwesomeIcon
+                icon={faLinkedin}
+                beat
+                size="sm"
+                style={{ color: "white" }}
+              />
+            </CustomButton>
+          </ButtonDiv>
+        </div>
+      </Wapper>
+
     </RootContainer>
   );
 }

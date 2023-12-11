@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Skills from './components/Skills';
 import TestProject from './components/TestProject';
 import Topbar from './components/Topbar';
+import Counter from './components/Counter';
 
 
 
@@ -15,6 +16,7 @@ function App() {
       <Topbar />
       <Home />
       <AboutMe />
+      <Counter />
       <Skills />
       <TestProject />
       <ContactMe />

@@ -10,6 +10,8 @@ const Container = styled('div')(({ theme }) => ({
     padding: "80px 80px",
     display: "flex",
     flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
     position: "relative",
     zIndex: 1,
     gap: "40px",
@@ -58,6 +60,14 @@ const Skill = styled('div')(({ theme }) => ({
     border: "0.1px solid #6c6c37",
     boxShadow: "rgb(107 99 48 / 80%) 0px 0px 20px",
     borderRadius: "16px",
+    [theme.breakpoints.down("md")]: {
+        maxWidth: "400px",
+        padding: "10px 36px",
+    },
+    [theme.breakpoints.down("sm")]: {
+        maxWidth: "330px",
+        padding: "10px 36px",
+    },
 
 }))
 
@@ -125,11 +135,11 @@ function Skills() {
                 </Desc>
                 <SkillsContainer>
                     {skills.map((skill) => (
-                        <Skill>
+                        <Skill key={skill.title}>
                             <SkillTitle>{skill.title}</SkillTitle>
                             <SkillList>
                                 {skill.skills.map((item) => (
-                                    <SkillItem>
+                                    <SkillItem key={item.name}>
                                         <SkillImage src={item.image} />
                                         {item.name}
                                     </SkillItem>

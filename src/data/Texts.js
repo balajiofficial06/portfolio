@@ -44,6 +44,8 @@ export const projects = [
   },
 ];
 
+export const bio = ["Software Engineer", "Full Stack Developer"]
+
 
 export const skills = [
   {

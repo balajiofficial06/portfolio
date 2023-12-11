@@ -116,7 +116,7 @@ function TestProject() {
 
 
                     filter === 'All' || project.stack === filter ? (
-                        <Fade in={true} timeout={1000}>
+                        <Fade in={true} timeout={1000} key={project.title}>
                             <Grid item xs={12} sm={6} md={4} xl={3} key={index}>
                                 <ProjectCard>
                                     <a

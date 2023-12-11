@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 import { Button, Typography } from '@mui/material'
 import React from 'react'
+import Typewriter from 'typewriter-effect'
+import { bio } from '../data/Texts'
 // import Urls from '../data/Urls'
 
 const RootContainer = styled('div')(({ theme }) => (
@@ -19,7 +21,8 @@ const RootContainer = styled('div')(({ theme }) => (
     }
 ))
 
-const CustomText = styled(Typography)(({ theme }) => ({
+const CustomText = styled('div')(({ theme }) => ({
+    fontSize: "32px",
     color: "#e0a80d",
     fontWeight: "600",
     textAlign: "center",
@@ -58,10 +61,20 @@ const CustomButton = styled(Button)({
 
 function Home() {
 
+
     return (
         <RootContainer id='home'>
             <Typography variant='p' fontSize='25px' fontWeight='300' color='white'>I'm Balaji</Typography>
-            <CustomText variant='h3'>Software developer</CustomText>
+            {/* <CustomText variant='h3'>Software developer</CustomText> */}
+            <CustomText>
+                <Typewriter options={{
+                    loop: true,
+                    strings: bio,
+                    autoStart: true,
+                    delay: '40',
+                    deleteSpeed: '30'
+                }} />
+            </CustomText>
             <Typography variant='p' color="white" textAlign="center">
                 Diligent software developer adept at crafting efficient, innovative solutions through <br /> proficient coding and problem-solving skills.
             </Typography>
