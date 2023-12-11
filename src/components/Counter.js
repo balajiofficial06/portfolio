@@ -42,9 +42,7 @@ const NumberCounter = styled(CountUp)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {
         fontSize: "20px",
         fontWeight: 500,
-
     },
-
 }));
 
 const PlatformContainer = styled('a')(({ theme }) => ({
@@ -60,10 +58,7 @@ const PlatformContainer = styled('a')(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {
         fontSize: "25px",
         fontWeight: 500,
-
     },
-
-
 }));
 
 function Counter() {
@@ -85,11 +80,6 @@ function Counter() {
         count: 50
     }]
 
-    // const [total, setTotal] = useState({
-    //     leet: 100,
-    //     ninjas: 50,
-    //     total: 100
-    // })
 
     const [total, setTotal] = useState(data)
 
@@ -104,7 +94,6 @@ function Counter() {
                 count: countsObject[platform] !== undefined ? countsObject[platform] : item.count,
             };
         });
-        console.log(updatedTotal)
         // Update the state with the new array
         setTotal(updatedTotal);
     };
@@ -125,12 +114,9 @@ function Counter() {
                     "Coding Ninjas": 50,
                     Total: response.data.totalSolved + 50
                 })
-                // const leet = response.data.totalSolved
-                // const ninjas = 50
-                // let total = leet + ninjas
+
             })
             .catch(function (error) {
-                console.error(error);
                 updateCount({
                     LeetCode: 120,
                     "Coding Ninjas": 60,
@@ -148,20 +134,12 @@ function Counter() {
                 {counts && <Counting>
                     {total.map((platform) => (
                         <PlatformContainer href={platform.link} target='_blank'>
-
-
                             <NumberCounter start={0} end={platform.count} duration={2} delay={0} key={platform.platform} />
-
                             {platform.name}
                         </PlatformContainer>
                     ))}
                 </Counting>
                 }
-                {/* {counts && <Counting>
-                    <NumberCounter start={0} end={total.total} duration={2} delay={0} />
-                    <NumberCounter start={0} end={total.leet} duration={2} delay={0} />
-                    <NumberCounter start={0} end={total.ninjas} duration={2} delay={0} />
-                </Counting >} */}
             </ScrollTrigger>
         </RootContainer>
     )
