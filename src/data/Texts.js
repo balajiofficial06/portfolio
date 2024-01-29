@@ -1,7 +1,8 @@
 import todoimg from '../components/images/todo.png'
 import employeTrakingImg from '../components/images/employee-tracking.jpg'
 import portfolioImg from '../components/images/portfolioCover.jpg'
-import tourBookingImg from '../components/images/tourBooking.jpg'
+import tourBookingImg from '../components/images/tourBooking2.jpg'
+import instagramImg from '../components/images/instagram.jpg'
 
 
 export const Texts = {
@@ -24,6 +25,14 @@ export const projects = [
     url: "https://github.com/balajiofficial06/employe_tracker.git",
     description:
       "An employee management system created using the MERN stack, designed to keep track of employee details, attendance, and performance.",
+    stack: "fullstack",
+  },
+  {
+    title: "Instagram clone",
+    images: instagramImg,
+    url: "https://insta-client-red.vercel.app/",
+    description:
+      "A exact copy of instagram, with the core features like infinity scroll",
     stack: "fullstack",
   },
   {

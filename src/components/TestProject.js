@@ -131,6 +131,7 @@ function TestProject() {
                                                 width: "100%",
                                                 height: "200px",
                                                 borderRadius: "4px",
+                                                objectFit: "cover",
                                             }}
                                         />
                                         <ProjectTitle>{project.title}</ProjectTitle>
